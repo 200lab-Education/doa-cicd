@@ -44,9 +44,7 @@ jobs:
 
       - name: Modify YAML file
         run: |
-          for APP_NAME in $APPS_NAME; do
-            sed -i "s|tag:.*|tag: ${{ github.sha }}|g" helm/charts/values/foobar/values.yaml
-          done
+          sed -i "s|tag:.*|tag: ${{ github.sha }}|g" helm/charts/values/foobar/values.yaml
 
       - name: Configure Git to use PAT for Push
         run: |
