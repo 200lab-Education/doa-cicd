@@ -32,10 +32,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
-
-    env:
-      MANIFEST_REPO: 'https://github.com/200lab-Education/kubernetes.git'
-
     steps:
       - name: Install sed
         run: sudo apt-get install sed -y
@@ -43,7 +39,7 @@ jobs:
       - name: Fetch Service
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.MANIFEST_REPO }}
+          repository: 200lab-Education/kubernetes
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Modify YAML file
