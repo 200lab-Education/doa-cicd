@@ -50,6 +50,9 @@ jobs:
 
       - name: Configure Git to use PAT for Push
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git config --global url.https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/.insteadOf https://github.com
           git add .
           git commit -m "Update image tag to ${{ github.sha }}"
           git push
